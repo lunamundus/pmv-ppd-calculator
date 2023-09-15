@@ -7,7 +7,7 @@
     <title>PPM PPD Calculator</title>
 
     <!-- 외부 JavaScript 파일 연결 -->
-    <script src="pmv.js"></script>
+    <script src="./js/pmv.js"></script>
 
 </head>
     <body>
@@ -47,5 +47,12 @@
     
             <div id="result"></div>
         </div>   
+
+        <!-- csv 파일을 이용한 PMV-PPD 계산 -->
+        <div>
+            <input type="file" id="file-upload" accept=".csv" onchange="getFileValue()">
+
+            <div id="file-result"></div>
+        </div>
     </body>
 </html>

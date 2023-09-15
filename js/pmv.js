@@ -1,3 +1,45 @@
+function getFileValue() {
+    const uploadFiles = document.getElementById('file-upload');
+    const resultValue = document.getElementById('file-result');
+
+    const file  = uploadFiles.files[0]; // 선택한 파일 가져오기
+    const reader = new FileReader();
+
+    reader.onload = function (event) {
+        const csvData = event.target.result;
+        const csvRows = csvData.split("\n");
+
+        for (let i = 1; i < csvRows.length-1; i++) {
+            const csvCols = csvRows[i].split(",")
+
+            var ta = Number(csvCols[1]);
+            var tr = Number(csvCols[2]);
+            var vel = Number(csvCols[3]);
+            var rh = Number(csvCols[4]);
+            var met = Number(csvCols[5]);
+            var clo = Number(csvCols[6]);
+            if (csvCols[7]) {
+                var wme = Number(csvCols[7]);
+            } else {
+                var wme = 0;
+            }
+
+            var result = pmv(ta, tr, vel, rh, met, clo, wme);
+
+            var newDiv = document.createElement('div');
+            newDiv.textContent = "PMV : " + result.pmv.toFixed(2) + " / ppd : " + result.ppd.toFixed(2);
+
+            resultValue.appendChild(newDiv)
+        }
+    }
+
+    if (file) {
+        reader.readAsText(file);
+    } else {
+        resultValue.textContent = "파일을 선택해주세요"
+    }
+}
+
 function getValue() {
     var ta = Number(document.getElementById('ta').value);
     var tr = Number(document.getElementById('tr').value);
