@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PPM PPD Calculator</title>
+
+    <!-- 외부 JavaScript 파일 연결 -->
+    <script src="pmv.js"></script>
+
+</head>
+    <body>
+        <!-- 입력 값을 이용하여 PMV-PPD 계산 -->
+        <div>
+            <div>
+                <label>공기온도 (Air Temperature, °C) : <input type="text" id="ta"></label>
+            </div>
+
+            <div>
+                <label>평균복사온도 (Mean Radiant Temperature, °C) : <input type="text" id="tr" required></label>
+            </div>
+
+            <div>
+                <label>기류속도 (Relative Air Speed, m/s) : <input type="text" id="vel" required></label>
+            </div>
+
+            <div>
+                <label>상대습도 (Relative Humidity, %) : <input type="text" id="rh" required></label>
+            </div>
+
+            <div>
+                <label>MET (Metabolic Rate, met) : <input type="text" id="met" required></label>
+            </div>
+
+            <div>
+                <label>CLO (Clothing, clo) : <input type="text" id="clo" required></label>
+            </div>
+
+            <div>
+                <label>WME (External Work, default = 0, met) : <input type="text" id="wme"></label>
+            </div>
+
+            <div>
+                <button type="submit" id="submit-btn" onclick="getValue()">SUBMIT</button><button type="reset" id="reset-btn">RESET</button>
+            </div>
+    
+            <div id="result"></div>
+        </div>   
+    </body>
+</html>
